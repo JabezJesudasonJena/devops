@@ -1,0 +1,15 @@
+-- Dockerfile --
+FORM node:slim
+WORKDIR /app
+COPY . /app
+RUN npm install
+EXPOSE 3000
+RUN npm install
+CMD node index.js
+
+-- Commands -- 
+docker build -t jabezedu/newNodeJSapp:0.0.1 .
+docker container ls
+docker container run -d -p 3000:3000 jabezedu/newNodeJSapp:0.0.1
+docker container ls
+docker container stop threedigitid
